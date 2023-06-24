@@ -19,6 +19,12 @@ const GlobalStyle = styled.createGlobalStyle`
   h1 {
     margin: 0;
   }
+
+  button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 `;
 
 export default GlobalStyle;

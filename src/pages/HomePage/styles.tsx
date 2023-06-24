@@ -5,6 +5,7 @@ export const HomePageWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 50px 20px;
+  gap: 50px;
 `;
 
 export const Header = styled.header`
@@ -21,4 +22,12 @@ export const Header = styled.header`
   p {
     color: #777777;
   }
+`;
+
+export const ListWrapper = styled.div`
+  width: 100%;
+`;
+
+export const Hr = styled.hr`
+  width: 100%;
 `;
