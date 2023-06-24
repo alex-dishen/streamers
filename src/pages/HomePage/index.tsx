@@ -1,15 +1,16 @@
 import { useHomePage } from 'pages/HomePage/useHomePage';
-import { HomePageProps } from 'pages/HomePage/types';
+import List from 'components/List';
+import { MockData } from 'pages/HomePage/constants';
 import {
   HomePageWrapper,
   Header,
   ListWrapper,
   Hr,
 } from 'pages/HomePage/styles';
-import List from 'components/List';
-import { MockData } from './constants';
+import Input from 'components/Input';
+import TextArea from 'components/TextArea';
 
-const HomePage = ({}: HomePageProps) => {
+const HomePage = () => {
   useHomePage();
 
   return (
@@ -23,6 +24,19 @@ const HomePage = ({}: HomePageProps) => {
         <List value={MockData} onClick={console.log} />
       </ListWrapper>
       <Hr />
+      <form onSubmit={e => e.preventDefault()}>
+        <Input
+          type="text"
+          title="Name"
+          placeHolder="What's his/her name?"
+          isRequired
+        />
+        <TextArea
+          title="Description"
+          placeHolder="Can you describe the streamer?"
+          isRequired
+        />
+      </form>
     </HomePageWrapper>
   );
 };
