@@ -5,6 +5,19 @@ const GlobalStyle = styled.createGlobalStyle`
     font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
+    background-color: rgb(243, 241, 236);
+  }
+
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  p,
+  h1 {
+    margin: 0;
   }
 `;
 
