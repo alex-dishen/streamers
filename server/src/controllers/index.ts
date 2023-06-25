@@ -12,14 +12,15 @@ export const getStreamers = async (req: Request, res: Response) => {
 }
 
 export const createStreamer = async (req: UpdatedRequest, res: Response) => {
-  const { name, platform, description, pictureNumber, upvotes, downvotes } =
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const { name, platform, description, picture_index, upvotes, downvotes } =
     req.body
 
   try {
     const response = await pool.query(
-      `INSERT INTO streamers (streamer_id, name, description, platform, picture_number, upvotes, downvotes)
+      `INSERT INTO streamers (streamer_id, name, description, platform, picture_index, upvotes, downvotes)
        VALUES (uuid_generate_v4(), $1, $2, $3, $4, $5, $6);`,
-      [name, description, platform, pictureNumber, upvotes, downvotes]
+      [name, description, platform, picture_index, upvotes, downvotes]
     )
     res.json(response)
   } catch (error) {

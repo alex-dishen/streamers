@@ -22,7 +22,11 @@ const HomePage = () => {
       </Header>
       <ListWrapper>
         <p>Your streamers</p>
-        <List value={streamers} onClick={console.log} onDelete={handleDelete} />
+        <List
+          values={streamers}
+          onClick={console.log}
+          onDelete={handleDelete}
+        />
       </ListWrapper>
       <Form options={Platforms} setData={setStreamers} />
     </HomePageWrapper>
