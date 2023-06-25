@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { DropDownItemT } from 'components/DropDown/types';
 
 export const DropDownWrapper = styled.div`
   display: flex;
@@ -20,17 +21,26 @@ export const DropDownButton = styled.button`
 `;
 
 export const DropDownOptions = styled.ul`
+  z-index: 2;
   position: absolute;
   top: 120%;
   width: 100%;
+  background-color: #0f0f0f;
   border: 1px solid rgb(37, 37, 37);
   border-radius: 10px;
 `;
 
-export const DropDownItem = styled.li`
-  display: flex;
-  gap: 5px;
-  padding: 10px 15px;
-  font-size: 18px;
-  cursor: pointer;
-`;
+export const DropDownItem = styled.li<DropDownItemT>(
+  ({ isHighlight }) => css`
+    padding: 10px 15px;
+    color: ${isHighlight ? 'white' : '#777777'};
+    font-size: 18px;
+    list-style: none;
+    transition: 300ms;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+    }
+  `,
+);

@@ -4,6 +4,7 @@ import {
   Option,
   CrossButton,
   Image,
+  GlowingImage,
   Rating,
   OptionBody,
   PenButton,
@@ -21,6 +22,7 @@ const List = ({ value, onClick }: ListProps) => {
           </CrossButton>
           <OptionBody>
             <Image src={picture} alt="" />
+            <GlowingImage src={picture} alt="" />
             <p>{name}</p>
             <Rating>
               <p>👍 {upVotes}</p>

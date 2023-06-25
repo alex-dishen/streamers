@@ -49,6 +49,12 @@ export const Image = styled.img`
   border-radius: 50%;
 `;
 
+export const GlowingImage = styled(Image)`
+  z-index: -1;
+  position: absolute;
+  filter: blur(15px);
+`;
+
 export const Rating = styled.div`
   display: flex;
   gap: 25px;

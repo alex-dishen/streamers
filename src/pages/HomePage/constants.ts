@@ -1,5 +1,6 @@
 import { nanoid } from 'nanoid';
 import SpaceMan from 'assets/images/space_man.jpg';
+import SleepingPanda from 'assets/images/sleeping_panda.jpg';
 
 export const MockData = [
   {
@@ -13,7 +14,7 @@ export const MockData = [
   {
     id: nanoid(),
     name: 'Zain Said',
-    picture: SpaceMan,
+    picture: SleepingPanda,
     platform: 'Twitch',
     upVotes: 1,
     downVotes: 7,

@@ -6,3 +6,7 @@ export type DropDownProps = {
   options: DropDownPropsOptionsT[];
   setOption: (a: string) => void;
 };
+
+export type DropDownItemT = {
+  isHighlight: boolean;
+};

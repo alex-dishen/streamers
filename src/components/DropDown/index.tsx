@@ -21,7 +21,11 @@ const DropDown = ({ title, optionName, options, setOption }: DropDownProps) => {
       {isShowOptions && (
         <DropDownOptions>
           {options.map(({ id, name }) => (
-            <DropDownItem key={id} onClick={() => setOption(name)}>
+            <DropDownItem
+              key={id}
+              onClick={() => setOption(name)}
+              isHighlight={optionName === name}
+            >
               {name}
             </DropDownItem>
           ))}

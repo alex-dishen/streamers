@@ -5,8 +5,7 @@ const GlobalStyle = styled.createGlobalStyle`
     font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
-    /* background-color: rgb(243, 241, 236); */
-    background-color: black;
+    background-color: #0f0f0f;
     color: white;
   }
 
