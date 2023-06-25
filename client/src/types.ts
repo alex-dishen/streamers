@@ -12,3 +12,8 @@ export type DropDownPropsOptionsT = {
   id: string;
   name: string;
 };
+
+export type VotesT = {
+  voteType: string;
+  voteValue: number;
+};
