@@ -16,3 +16,9 @@ export const createStreamer = async (streamerData: StreamerDataT) => {
 
   return response;
 };
+
+export const deleteStreamer = async (id?: string) => {
+  const response = await axios.delete(`${API_URL}/${id}`);
+
+  return response;
+};

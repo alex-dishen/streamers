@@ -3,9 +3,16 @@ import List from 'components/List';
 import { useHomePage } from 'pages/HomePage/useHomePage';
 import { Platforms } from 'pages/HomePage/constants';
 import { HomePageWrapper, Header, ListWrapper } from 'pages/HomePage/styles';
+import { deleteStreamer, getAllStreamers } from 'api/streamersAPI';
 
 const HomePage = () => {
   const { streamers, setStreamers } = useHomePage();
+
+  const handleDelete = async (id?: string) => {
+    const response = await deleteStreamer(id);
+
+    if (response) getAllStreamers(setStreamers);
+  };
 
   return (
     <HomePageWrapper>
@@ -15,7 +22,7 @@ const HomePage = () => {
       </Header>
       <ListWrapper>
         <p>Your streamers</p>
-        <List value={streamers} onClick={console.log} />
+        <List value={streamers} onClick={console.log} onDelete={handleDelete} />
       </ListWrapper>
       <Form options={Platforms} setData={setStreamers} />
     </HomePageWrapper>

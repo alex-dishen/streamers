@@ -12,12 +12,16 @@ import {
 import { ReactComponent as Pen } from 'assets/icons/pen.svg';
 import { ReactComponent as Cross } from 'assets/icons/cross.svg';
 
-const List = ({ value, onClick }: ListProps) => {
+const List = ({ value, onClick, onDelete }: ListProps) => {
   return (
     <StyledList>
       {value.map(({ streamer_id, name, upvotes, downvotes }) => (
         <Option key={streamer_id} onClick={onClick}>
-          <CrossButton>
+          <CrossButton
+            onClick={() => {
+              onDelete(streamer_id);
+            }}
+          >
             <Cross />
           </CrossButton>
           <OptionBody>
