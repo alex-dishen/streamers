@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { StreamerDataT } from 'types';
+import { StreamerDataT, VotesT } from 'types';
 
 const API_URL = 'http://localhost:8000/streamers';
 
@@ -19,6 +19,12 @@ export const createStreamer = async (streamerData: StreamerDataT) => {
 
 export const deleteStreamer = async (id?: string) => {
   const response = await axios.delete(`${API_URL}/${id}`);
+
+  return response;
+};
+
+export const updateVotes = async (id: string | undefined, newData: VotesT) => {
+  const response = await axios.put(`${API_URL}/${id}/vote`, newData);
 
   return response;
 };

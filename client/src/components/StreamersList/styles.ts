@@ -1,21 +1,5 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  height: 15px;
-  width: 15px;
-  padding: 0;
-
-  svg {
-    height: 100%;
-    width: 100%;
-    fill: white;
-  }
-`;
-
 export const StyledList = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(165px, min-content));
@@ -25,27 +9,44 @@ export const StyledList = styled.ul`
 `;
 
 export const Option = styled.li`
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  max-width: 165px;
-  gap: 5px;
-  padding: 15px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 25px;
   border: 1px solid rgb(37, 37, 37);
   font-size: 18px;
   border-radius: 15px;
   text-align: center;
 `;
 
-export const CrossButton = styled(Button)`
+export const CrossButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  height: 15px;
+  width: 15px;
   padding: 4px;
   background-color: rgb(242, 81, 53);
   border-radius: 50%;
+
+  svg {
+    height: 100%;
+    width: 100%;
+    fill: white;
+  }
 `;
 
 export const OptionBody = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
   gap: 15px;
   margin-top: 10px;
 `;
@@ -64,12 +65,11 @@ export const GlowingImage = styled(Image)`
 
 export const Rating = styled.div`
   display: flex;
-  gap: 25px;
+  justify-content: space-between;
+  width: 100%;
   font-size: 14px;
 
   p {
     cursor: pointer;
   }
 `;
-
-export const PenButton = styled(Button)``;

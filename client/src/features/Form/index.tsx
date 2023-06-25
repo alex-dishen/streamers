@@ -22,7 +22,10 @@ const Form = ({ options, setData }: FormProps) => {
   } = useForm({ options, setData });
 
   return (
-    <StyledForm onSubmit={handleSubmit}>
+    <StyledForm
+      style={{ backdropFilter: 'blur(15px)' }}
+      onSubmit={handleSubmit}
+    >
       <FormBody>
         <FormTop>
           <Input

@@ -4,7 +4,6 @@ export const StyledForm = styled.form`
   display: flex;
   justify-content: center;
   padding: 30px 40px;
-  backdrop-filter: blur(15px);
   box-shadow: 0 0 10px 1px rgb(56, 165, 255);
   border-radius: 20px;
 `;

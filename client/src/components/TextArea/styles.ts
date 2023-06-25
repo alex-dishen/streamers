@@ -8,7 +8,6 @@ export const TextAreaWrapper = styled.div`
 `;
 
 export const StyledTextArea = styled.textarea`
-  z-index: 1;
   height: 240px;
   width: 100%;
   padding: 12px 20px;

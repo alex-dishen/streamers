@@ -21,7 +21,6 @@ export const DropDownButton = styled.button`
 `;
 
 export const DropDownOptions = styled.ul`
-  z-index: 2;
   position: absolute;
   top: 120%;
   width: 100%;

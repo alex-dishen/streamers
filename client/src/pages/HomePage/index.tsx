@@ -1,18 +1,12 @@
 import Form from 'features/Form';
-import List from 'components/List';
+import StreamersList from 'components/StreamersList';
 import { useHomePage } from 'pages/HomePage/useHomePage';
 import { Platforms } from 'pages/HomePage/constants';
 import { HomePageWrapper, Header, ListWrapper } from 'pages/HomePage/styles';
-import { deleteStreamer, getAllStreamers } from 'api/streamersAPI';
 
 const HomePage = () => {
-  const { streamers, setStreamers } = useHomePage();
-
-  const handleDelete = async (id?: string) => {
-    const response = await deleteStreamer(id);
-
-    if (response) getAllStreamers(setStreamers);
-  };
+  const { streamers, setStreamers, handleDelete, handleVoteClick } =
+    useHomePage();
 
   return (
     <HomePageWrapper>
@@ -22,10 +16,11 @@ const HomePage = () => {
       </Header>
       <ListWrapper>
         <p>Your streamers</p>
-        <List
+        <StreamersList
           values={streamers}
           onClick={console.log}
           onDelete={handleDelete}
+          voteClick={handleVoteClick}
         />
       </ListWrapper>
       <Form options={Platforms} setData={setStreamers} />
