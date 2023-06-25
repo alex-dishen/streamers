@@ -5,14 +5,16 @@ const GlobalStyle = styled.createGlobalStyle`
     font-family: Manrope, system-ui, -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
-    background-color: rgb(243, 241, 236);
+    /* background-color: rgb(243, 241, 236); */
+    background-color: black;
+    color: white;
   }
 
   #root {
     display: flex;
     flex-direction: column;
-    align-items: center;
     min-height: 100vh;
+    padding: 50px 20px;
   }
 
   p,

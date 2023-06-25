@@ -9,6 +9,7 @@ import {
   Hr,
   SubmitButton,
   StyledForm,
+  FormTop,
 } from 'pages/HomePage/styles';
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
@@ -30,18 +31,20 @@ const HomePage = () => {
       </ListWrapper>
       <Hr />
       <StyledForm onSubmit={e => e.preventDefault()}>
-        <DropDown
-          title="Platform"
-          setOption={setPlatform}
-          optionName={platform}
-          options={Platforms}
-        />
-        <Input
-          type="text"
-          title="Name"
-          placeHolder="What's his/her name?"
-          isRequired
-        />
+        <FormTop>
+          <Input
+            type="text"
+            title="Name"
+            placeHolder="What's his/her name?"
+            isRequired
+          />
+          <DropDown
+            title="Platform"
+            setOption={setPlatform}
+            optionName={platform}
+            options={Platforms}
+          />
+        </FormTop>
         <TextArea
           title="Description"
           placeHolder="Can you describe the streamer?"

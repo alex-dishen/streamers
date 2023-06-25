@@ -14,7 +14,8 @@ export const DropDownButton = styled.button`
   justify-content: space-between;
   width: 100%;
   padding: 10px 15px;
-  border: 1px solid rgba(0, 0, 0, 0.4);
+  color: white;
+  border: 1px solid rgb(37, 37, 37);
   border-radius: 10px;
 `;
 
@@ -22,7 +23,7 @@ export const DropDownOptions = styled.ul`
   position: absolute;
   top: 120%;
   width: 100%;
-  background-color: white;
+  border: 1px solid rgb(37, 37, 37);
   border-radius: 10px;
 `;
 

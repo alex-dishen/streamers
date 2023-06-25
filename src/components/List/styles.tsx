@@ -9,6 +9,7 @@ const Button = styled.button`
   svg {
     height: 100%;
     width: 100%;
+    fill: white;
   }
 `;
 
@@ -22,8 +23,8 @@ export const StyledList = styled.ul`
 export const Option = styled.li`
   display: flex;
   gap: 5px;
-  padding: 10px 15px;
-  background-color: white;
+  padding: 15px;
+  border: 1px solid rgb(37, 37, 37);
   font-size: 18px;
   border-radius: 15px;
 `;

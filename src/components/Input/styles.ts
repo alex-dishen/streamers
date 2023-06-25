@@ -11,7 +11,8 @@ export const StyledInput = styled.input`
   width: 100%;
   padding: 10px 15px;
   background-color: transparent;
-  border: 1px solid rgba(0, 0, 0, 0.4);
-  border-radius: 15px;
+  border: 1px solid rgb(37, 37, 37);
+  color: white;
+  border-radius: 10px;
   outline: none;
 `;
