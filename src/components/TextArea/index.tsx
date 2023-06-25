@@ -1,26 +1,24 @@
-import { InputProps } from 'components/Input/types';
-import { InputWrapper, StyledInput } from 'components/Input/styles';
+import { TextAreaProps } from 'components/TextArea/types';
+import { TextAreaWrapper, StyledTextArea } from 'components/TextArea/styles';
 import { Star } from 'styles';
 
-const Input = ({ type, title, placeHolder, isRequired }: InputProps) => {
+const TextArea = ({ title, placeHolder, isRequired }: TextAreaProps) => {
   const lowerCaseTitle = title.toLowerCase();
 
   return (
-    <InputWrapper>
+    <TextAreaWrapper>
       <label htmlFor={lowerCaseTitle}>
         {title}
         {isRequired ? <Star>*</Star> : ''}
       </label>
-      <StyledInput
-        type={type}
+      <StyledTextArea
         id={lowerCaseTitle}
         name={lowerCaseTitle}
         placeholder={placeHolder}
-        autoComplete="off"
         required={isRequired}
       />
-    </InputWrapper>
+    </TextAreaWrapper>
   );
 };
 
-export default Input;
+export default TextArea;
