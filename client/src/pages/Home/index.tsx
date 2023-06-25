@@ -1,10 +1,10 @@
 import Form from 'features/Form';
 import StreamersList from 'components/StreamersList';
-import { useHomePage } from 'pages/HomePage/useHomePage';
-import { Platforms } from 'pages/HomePage/constants';
-import { HomePageWrapper, Header, ListWrapper } from 'pages/HomePage/styles';
+import { useHomePage } from 'pages/Home/useHomePage';
+import { Platforms } from 'pages/Home/constants';
+import { HomePageWrapper, Header, ListWrapper } from 'pages/Home/styles';
 
-const HomePage = () => {
+const Home = () => {
   const { streamers, setStreamers, handleDelete, handleVoteClick } =
     useHomePage();
 
@@ -28,4 +28,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;

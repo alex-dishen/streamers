@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const StyledList = styled.ul`
@@ -10,10 +11,6 @@ export const StyledList = styled.ul`
 
 export const Option = styled.li`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
   padding: 20px 25px;
   border: 1px solid rgb(37, 37, 37);
   font-size: 18px;
@@ -42,15 +39,6 @@ export const CrossButton = styled.button`
   }
 `;
 
-export const OptionBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  gap: 15px;
-  margin-top: 10px;
-`;
-
 export const Image = styled.img`
   height: 70px;
   width: 70px;
@@ -61,6 +49,15 @@ export const GlowingImage = styled(Image)`
   z-index: -1;
   position: absolute;
   filter: blur(15px);
+`;
+
+export const OptionBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+  cursor: pointer;
 `;
 
 export const Rating = styled.div`

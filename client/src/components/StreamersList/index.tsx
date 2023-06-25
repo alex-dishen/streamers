@@ -1,4 +1,4 @@
-import { images } from 'constants';
+import { IMAGES } from 'constants';
 import { ListProps } from 'components/StreamersList/types';
 import {
   StyledList,
@@ -7,34 +7,56 @@ import {
   Image,
   GlowingImage,
   Rating,
+  OptionBody,
 } from 'components/StreamersList/styles';
 import { ReactComponent as Cross } from 'assets/icons/cross.svg';
+import { useNavigate } from 'react-router-dom';
 
-const StreamersList = ({ values, onClick, onDelete, voteClick }: ListProps) => (
-  <StyledList>
-    {values.map(({ streamer_id, name, upvotes, downvotes, picture_index }) => (
-      <Option key={streamer_id} onClick={onClick}>
-        <CrossButton
-          onClick={() => {
-            onDelete(streamer_id);
-          }}
-        >
-          <Cross />
-        </CrossButton>
-        <Image src={images[picture_index]} alt="" />
-        <GlowingImage src={images[picture_index]} alt="" />
-        <p>{name}</p>
-        <Rating>
-          <p onClick={() => voteClick(streamer_id, 'upvotes', ++upvotes)}>
-            👍 {upvotes || ''}
-          </p>
-          <p onClick={() => voteClick(streamer_id, 'downvotes', ++downvotes)}>
-            👎 {downvotes || ''}
-          </p>
-        </Rating>
-      </Option>
-    ))}
-  </StyledList>
-);
+const StreamersList = ({ values, onDelete, voteClick }: ListProps) => {
+  const navigate = useNavigate();
+
+  return (
+    <StyledList>
+      {values.map(value => (
+        <Option key={value.streamer_id}>
+          <CrossButton
+            onClick={() => {
+              onDelete(value.streamer_id);
+            }}
+          >
+            <Cross />
+          </CrossButton>
+          <OptionBody
+            onClick={() => {
+              navigate(`/streamer/${value.streamer_id}`, {
+                state: { streamer: value },
+              });
+            }}
+          >
+            <Image src={IMAGES[value.picture_index]} />
+            <GlowingImage src={IMAGES[value.picture_index]} />
+            <p>{value.name}</p>
+          </OptionBody>
+          <Rating>
+            <p
+              onClick={() =>
+                voteClick(value.streamer_id, 'upvotes', ++value.upvotes)
+              }
+            >
+              👍 {value.upvotes || ''}
+            </p>
+            <p
+              onClick={() =>
+                voteClick(value.streamer_id, 'downvotes', ++value.downvotes)
+              }
+            >
+              👎 {value.downvotes || ''}
+            </p>
+          </Rating>
+        </Option>
+      ))}
+    </StyledList>
+  );
+};
 
 export default StreamersList;
