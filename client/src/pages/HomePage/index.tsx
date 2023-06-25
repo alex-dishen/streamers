@@ -1,11 +1,11 @@
-import Form from 'components/Form';
+import Form from 'features/Form';
 import List from 'components/List';
 import { useHomePage } from 'pages/HomePage/useHomePage';
 import { Platforms } from 'pages/HomePage/constants';
 import { HomePageWrapper, Header, ListWrapper } from 'pages/HomePage/styles';
 
 const HomePage = () => {
-  const { streamers } = useHomePage();
+  const { streamers, setStreamers } = useHomePage();
 
   return (
     <HomePageWrapper>
@@ -17,7 +17,7 @@ const HomePage = () => {
         <p>Your streamers</p>
         <List value={streamers} onClick={console.log} />
       </ListWrapper>
-      <Form options={Platforms} />
+      <Form options={Platforms} setData={setStreamers} />
     </HomePageWrapper>
   );
 };

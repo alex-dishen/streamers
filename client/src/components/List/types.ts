@@ -1,6 +1,6 @@
-import { OptionsT } from 'types';
+import { StreamerDataT } from 'types';
 
 export type ListProps = {
-  value: OptionsT[];
+  value: StreamerDataT[];
   onClick: () => void;
 };
