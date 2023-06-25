@@ -1,17 +1,22 @@
+import { useState } from 'react';
 import { useHomePage } from 'pages/HomePage/useHomePage';
 import List from 'components/List';
-import { MockData } from 'pages/HomePage/constants';
+import { MockData, Platforms } from 'pages/HomePage/constants';
 import {
   HomePageWrapper,
   Header,
   ListWrapper,
   Hr,
+  SubmitButton,
+  StyledForm,
 } from 'pages/HomePage/styles';
 import Input from 'components/Input';
 import TextArea from 'components/TextArea';
+import DropDown from 'components/DropDown';
 
 const HomePage = () => {
   useHomePage();
+  const [platform, setPlatform] = useState('Twitch');
 
   return (
     <HomePageWrapper>
@@ -24,7 +29,13 @@ const HomePage = () => {
         <List value={MockData} onClick={console.log} />
       </ListWrapper>
       <Hr />
-      <form onSubmit={e => e.preventDefault()}>
+      <StyledForm onSubmit={e => e.preventDefault()}>
+        <DropDown
+          title="Platform"
+          setOption={setPlatform}
+          optionName={platform}
+          options={Platforms}
+        />
         <Input
           type="text"
           title="Name"
@@ -36,7 +47,8 @@ const HomePage = () => {
           placeHolder="Can you describe the streamer?"
           isRequired
         />
-      </form>
+        <SubmitButton type="submit">Add New Streamer</SubmitButton>
+      </StyledForm>
     </HomePageWrapper>
   );
 };

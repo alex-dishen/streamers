@@ -31,3 +31,17 @@ export const ListWrapper = styled.div`
 export const Hr = styled.hr`
   width: 100%;
 `;
+
+export const SubmitButton = styled.button`
+  padding: 10px 30px;
+  background-color: rgb(242, 81, 53);
+  color: white;
+  border-radius: 10px;
+  font-weight: 600;
+`;
+
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;

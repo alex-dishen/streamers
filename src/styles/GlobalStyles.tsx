@@ -16,8 +16,10 @@ const GlobalStyle = styled.createGlobalStyle`
   }
 
   p,
-  h1 {
+  h1,
+  ul {
     margin: 0;
+    padding: 0;
   }
 
   button {

@@ -15,6 +15,7 @@ const TextArea = ({ title, placeHolder, isRequired }: TextAreaProps) => {
         id={lowerCaseTitle}
         name={lowerCaseTitle}
         placeholder={placeHolder}
+        required={isRequired}
       />
     </TextAreaWrapper>
   );

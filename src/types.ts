@@ -6,3 +6,8 @@ export type OptionsT = {
   upVotes: number;
   downVotes: number;
 };
+
+export type DropDownPropsOptionsT = {
+  id: string;
+  name: string;
+};
