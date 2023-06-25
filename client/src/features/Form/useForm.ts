@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react';
 import { createStreamer, getAllStreamers } from 'api/streamersAPI';
+import { returnRandomNumber } from 'features/Form/helpers';
 import { FormProps } from 'features/Form/types';
 
 export const useForm = ({ options, setData }: FormProps) => {
@@ -19,7 +20,7 @@ export const useForm = ({ options, setData }: FormProps) => {
       name: name,
       platform: platform,
       description: description,
-      pictureNumber: 2,
+      picture_index: returnRandomNumber(),
       upvotes: 0,
       downvotes: 0,
     };

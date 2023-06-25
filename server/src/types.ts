@@ -5,7 +5,7 @@ type RequestBody = {
   name: string
   platform: string
   description: string
-  pictureNumber: number
+  picture_index: number
   upvotes: number
   downvotes: number
 }
