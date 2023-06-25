@@ -25,5 +25,8 @@ export const Header = styled.header`
 `;
 
 export const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
   width: 100%;
 `;
