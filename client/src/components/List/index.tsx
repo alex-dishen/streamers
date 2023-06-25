@@ -15,7 +15,7 @@ import { ReactComponent as Cross } from 'assets/icons/cross.svg';
 const List = ({ value, onClick }: ListProps) => {
   return (
     <StyledList>
-      {value.map(({ id, name, picture, upVotes, downVotes }) => (
+      {value.map(({ id, name, picture, upvotes, downvotes }) => (
         <Option key={id} onClick={onClick}>
           <CrossButton>
             <Cross />
@@ -25,8 +25,8 @@ const List = ({ value, onClick }: ListProps) => {
             <GlowingImage src={picture} alt="" />
             <p>{name}</p>
             <Rating>
-              <p>👍 {upVotes}</p>
-              <p>👎 {downVotes || ''}</p>
+              <p>👍 {upvotes}</p>
+              <p>👎 {downvotes || ''}</p>
             </Rating>
           </OptionBody>
           <PenButton>

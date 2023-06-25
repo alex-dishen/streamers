@@ -3,8 +3,8 @@ export type OptionsT = {
   name: string;
   picture: string;
   platform: string;
-  upVotes: number;
-  downVotes: number;
+  upvotes: number;
+  downvotes: number;
 };
 
 export type DropDownPropsOptionsT = {

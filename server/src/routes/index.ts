@@ -3,6 +3,6 @@ import { getStreamers } from '../controllers'
 
 const router = express.Router()
 
-router.get('/', getStreamers)
+router.get('/streamers', getStreamers)
 
 export default router

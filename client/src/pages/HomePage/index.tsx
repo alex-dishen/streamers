@@ -1,9 +1,12 @@
 import Form from 'components/Form';
 import List from 'components/List';
-import { MockData, Platforms } from 'pages/HomePage/constants';
+import { useHomePage } from 'pages/HomePage/useHomePage';
+import { Platforms } from 'pages/HomePage/constants';
 import { HomePageWrapper, Header, ListWrapper } from 'pages/HomePage/styles';
 
 const HomePage = () => {
+  const { streamers } = useHomePage();
+
   return (
     <HomePageWrapper>
       <Header>
@@ -12,7 +15,7 @@ const HomePage = () => {
       </Header>
       <ListWrapper>
         <p>Your streamers</p>
-        <List value={MockData} onClick={console.log} />
+        <List value={streamers} onClick={console.log} />
       </ListWrapper>
       <Form options={Platforms} />
     </HomePageWrapper>
