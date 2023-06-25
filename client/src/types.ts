@@ -1,8 +1,9 @@
-export type OptionsT = {
-  id: string;
+export type StreamerDataT = {
+  streamer_id?: string;
   name: string;
-  picture: string;
   platform: string;
+  description: string;
+  pictureNumber: number;
   upvotes: number;
   downvotes: number;
 };

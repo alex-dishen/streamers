@@ -2,7 +2,13 @@ import { TextAreaProps } from 'components/TextArea/types';
 import { TextAreaWrapper, StyledTextArea } from 'components/TextArea/styles';
 import { Star } from 'styles';
 
-const TextArea = ({ title, placeHolder, isRequired }: TextAreaProps) => {
+const TextArea = ({
+  title,
+  value,
+  placeHolder,
+  isRequired,
+  onChange,
+}: TextAreaProps) => {
   const lowerCaseTitle = title.toLowerCase();
 
   return (
@@ -14,8 +20,10 @@ const TextArea = ({ title, placeHolder, isRequired }: TextAreaProps) => {
       <StyledTextArea
         id={lowerCaseTitle}
         name={lowerCaseTitle}
+        value={value}
         placeholder={placeHolder}
         required={isRequired}
+        onChange={e => onChange(e.target.value)}
       />
     </TextAreaWrapper>
   );

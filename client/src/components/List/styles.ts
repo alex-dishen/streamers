@@ -15,6 +15,7 @@ const Button = styled.button`
 
 export const StyledList = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   width: 100%;
   list-style: none;

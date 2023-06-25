@@ -1,8 +1,16 @@
 import { InputProps } from 'components/Input/types';
 import { InputWrapper, StyledInput } from 'components/Input/styles';
 import { Star } from 'styles';
+import { useState } from 'react';
 
-const Input = ({ type, title, placeHolder, isRequired }: InputProps) => {
+const Input = ({
+  type,
+  title,
+  value,
+  placeHolder,
+  isRequired,
+  onChange,
+}: InputProps) => {
   const lowerCaseTitle = title.toLowerCase();
 
   return (
@@ -15,9 +23,11 @@ const Input = ({ type, title, placeHolder, isRequired }: InputProps) => {
         type={type}
         id={lowerCaseTitle}
         name={lowerCaseTitle}
+        value={value}
         placeholder={placeHolder}
         autoComplete="off"
         required={isRequired}
+        onChange={e => onChange(e.target.value)}
       />
     </InputWrapper>
   );
