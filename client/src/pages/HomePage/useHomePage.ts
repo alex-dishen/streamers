@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { getStreamers } from 'api/streamersAPI';
+import { getAllData } from 'api/streamersAPI';
 
 export const useHomePage = () => {
   const [streamers, setStreamers] = useState([]);
 
   const getAllStreamers = async () => {
-    const response = await getStreamers();
+    const response = await getAllData();
 
     setStreamers(response.data);
   };

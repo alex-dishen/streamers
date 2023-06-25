@@ -25,7 +25,7 @@ const List = ({ value, onClick }: ListProps) => {
             <GlowingImage src={picture} alt="" />
             <p>{name}</p>
             <Rating>
-              <p>👍 {upvotes}</p>
+              <p>👍 {upvotes || ''}</p>
               <p>👎 {downvotes || ''}</p>
             </Rating>
           </OptionBody>

@@ -12,6 +12,6 @@ app.use(streamersRouter)
 
 app.listen(port, () =>
   console.log(
-    `⚡️[server]: Game Harbor listening on port http://localhost:${port}!`
+    `⚡️[server]: Streamers listening on port http://localhost:${port}!`
   )
 )
