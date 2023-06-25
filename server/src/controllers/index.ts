@@ -26,3 +26,17 @@ export const createStreamer = async (req: UpdatedRequest, res: Response) => {
     console.error(error)
   }
 }
+
+export const deleteStreamer = async (req: Request, res: Response) => {
+  const { id } = req.params
+
+  try {
+    const response = await pool.query(
+      'DELETE FROM streamers WHERE streamer_id = $1',
+      [id]
+    )
+    res.json(response)
+  } catch (err) {
+    console.error(err)
+  }
+}
