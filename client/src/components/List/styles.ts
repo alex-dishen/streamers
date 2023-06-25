@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   height: 15px;
   width: 15px;
   padding: 0;
@@ -14,8 +17,8 @@ const Button = styled.button`
 `;
 
 export const StyledList = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(165px, min-content));
   gap: 15px;
   width: 100%;
   list-style: none;
@@ -23,11 +26,14 @@ export const StyledList = styled.ul`
 
 export const Option = styled.li`
   display: flex;
+  justify-content: space-between;
+  max-width: 165px;
   gap: 5px;
   padding: 15px;
   border: 1px solid rgb(37, 37, 37);
   font-size: 18px;
   border-radius: 15px;
+  text-align: center;
 `;
 
 export const CrossButton = styled(Button)`
