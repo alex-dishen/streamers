@@ -24,6 +24,7 @@ export type ColorsT = {
     600: string;
   };
   red: {
+    50: string;
     200: string;
   };
 };

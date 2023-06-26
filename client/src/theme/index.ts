@@ -26,6 +26,7 @@ export const Colors = {
     600: '#38a5ff',
   },
   red: {
+    50: '#ffc0c0',
     200: '#f25135',
   },
 };

@@ -12,4 +12,20 @@ type RequestBody = {
   voteValue: number
 }
 
+type PostgresError = {
+  length: number
+  name: string
+  severity: string
+  code: string
+  detail: string
+  schema: string
+  table: string
+  constraint: string
+  file: string
+  line: string
+  routine: string
+}
+
+export type UpdatedError = Error & PostgresError
+
 export type UpdatedRequest = Request<ParamsDictionary, unknown, RequestBody>

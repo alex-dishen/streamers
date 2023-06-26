@@ -6,17 +6,18 @@ import {
   updateVotes,
   deleteStreamer
 } from '../controllers'
+import tryCatch from '../utils/tryCatch'
 
 const router = express.Router()
 
-router.get('/streamers', getStreamers)
+router.get('/streamers', tryCatch(getStreamers))
 
-router.get('/:streamer/:id', getStreamer)
+router.get('/:streamer/:id', tryCatch(getStreamer))
 
-router.post('/streamers', createStreamer)
+router.post('/streamers', tryCatch(createStreamer))
 
-router.put('/streamers/:id/vote', updateVotes)
+router.put('/streamers/:id/vote', tryCatch(updateVotes))
 
-router.delete('/streamers/:id', deleteStreamer)
+router.delete('/streamers/:id', tryCatch(deleteStreamer))
 
 export default router

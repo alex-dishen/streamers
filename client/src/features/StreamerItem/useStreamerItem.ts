@@ -1,9 +1,11 @@
-import { deleteStreamer, getAllStreamers, updateVotes } from 'api/streamersAPI';
+import { deleteStreamer, updateVotes } from 'api/streamersAPI';
 import { useStreamerContext } from 'contexts/StreamerContext';
-import { StreamerDataT } from 'types';
+import { handleError } from 'helpers';
+import { ResponseT, StreamerDataT } from 'types';
 
 export const useStreamerItem = () => {
-  const { streamers, setStreamers } = useStreamerContext();
+  const { streamers, setStreamers, setErrorMessage, setShowError } =
+    useStreamerContext();
 
   const updateStreamer = (data: StreamerDataT[]) => {
     return streamers.map(item =>
@@ -12,9 +14,12 @@ export const useStreamerItem = () => {
   };
 
   const onDelete = async (id?: string) => {
-    const response = await deleteStreamer(id);
+    const response = (await deleteStreamer(id)) as ResponseT;
 
-    if (response) getAllStreamers(setStreamers);
+    if (response.status !== 200)
+      return handleError(response.response.data, setErrorMessage, setShowError);
+
+    setStreamers(response.data);
   };
 
   const onVoteClick = async (
@@ -27,9 +32,12 @@ export const useStreamerItem = () => {
       voteValue: voteValue,
     };
 
-    const { data } = await updateVotes(id, newData);
+    const response = (await updateVotes(id, newData)) as ResponseT;
 
-    setStreamers(updateStreamer(data));
+    if (response.status !== 200)
+      return handleError(response.response.data, setErrorMessage, setShowError);
+
+    setStreamers(updateStreamer(response.data));
   };
 
   return { onVoteClick, onDelete };

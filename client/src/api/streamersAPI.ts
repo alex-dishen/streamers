@@ -6,34 +6,54 @@ const API_URL = 'http://localhost:8000/streamers';
 export const getAllStreamers = async (
   setData: (a: StreamerDataT[]) => void,
 ) => {
-  const response = await axios.get(API_URL);
+  try {
+    const response = await axios.get(API_URL);
 
-  if (response) setData(response.data);
+    if (response) setData(response.data);
+  } catch (error) {
+    return error;
+  }
 };
 
 export const getStreamer = async (
   id: string,
   setData: (a: StreamerDataT) => void,
 ) => {
-  const response = await axios.get(`${API_URL}/${id}`);
+  try {
+    const response = await axios.get(`${API_URL}/${id}`);
 
-  if (response) setData(response.data[0]);
+    if (response) setData(response.data[0]);
+  } catch (error) {
+    return error;
+  }
 };
 
 export const createStreamer = async (streamerData: StreamerDataT) => {
-  const response = await axios.post(API_URL, streamerData);
+  try {
+    const response = await axios.post(API_URL, streamerData);
 
-  return response;
+    return response;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const deleteStreamer = async (id?: string) => {
-  const response = await axios.delete(`${API_URL}/${id}`);
+  try {
+    const response = await axios.delete(`${API_URL}/${id}`);
 
-  return response;
+    return response;
+  } catch (error) {
+    return error;
+  }
 };
 
 export const updateVotes = async (id: string | undefined, newData: VotesT) => {
-  const response = await axios.put(`${API_URL}/${id}/vote`, newData);
+  try {
+    const response = await axios.put(`${API_URL}/${id}/vote`, newData);
 
-  return response;
+    return response;
+  } catch (error) {
+    return error;
+  }
 };

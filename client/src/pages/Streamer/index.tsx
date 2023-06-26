@@ -1,6 +1,7 @@
 import { IMAGES, PAGES, PLATFORM_ICONS } from 'constants';
 import { useNavigate } from 'react-router-dom';
 import { useStreamer } from 'pages/Streamer/uaeStreamer';
+import Sorry from 'components/NotFound';
 import {
   StreamerWrapper,
   HomeButton,
@@ -15,7 +16,9 @@ import { ReactComponent as ArrowLeft } from 'assets/icons/arrow_left.svg';
 
 const Streamer = () => {
   const navigate = useNavigate();
-  const { streamer } = useStreamer();
+  const { showSorry, streamer } = useStreamer();
+
+  if (showSorry) return <Sorry />;
 
   const {
     name,
