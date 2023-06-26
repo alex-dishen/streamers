@@ -1,7 +1,6 @@
 import { InputProps } from 'components/Input/types';
 import { InputWrapper, StyledInput } from 'components/Input/styles';
 import { Star } from 'styles';
-import { useState } from 'react';
 
 const Input = ({
   type,

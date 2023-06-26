@@ -3,7 +3,7 @@ import {
   getStreamers,
   createStreamer,
   deleteStreamer,
-  updateUpvotesDownVotes
+  updateVotes
 } from '../controllers'
 
 const router = express.Router()
@@ -12,7 +12,7 @@ router.get('/streamers', getStreamers)
 
 router.post('/streamers', createStreamer)
 
-router.put('/streamers/:id/vote', updateUpvotesDownVotes)
+router.put('/streamers/:id/vote', updateVotes)
 
 router.delete('/streamers/:id', deleteStreamer)
 

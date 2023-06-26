@@ -1,3 +1,6 @@
+import { nanoid } from 'nanoid';
+import { PlatformsT } from 'pages/Home/types';
+
 import Panda from 'assets/images/panda.jpg';
 import SpaceMan from 'assets/images/space_man.jpg';
 import SleepingPanda from 'assets/images/sleeping_panda.jpg';
@@ -24,3 +27,11 @@ export const PlatformIcons = {
   Twitch: <Twitch />,
   YouTube: <YouTube />,
 };
+
+export const Platforms: PlatformsT[] = [
+  { id: nanoid(), name: 'Twitch' },
+  { id: nanoid(), name: 'YouTube' },
+  { id: nanoid(), name: 'TikTok' },
+  { id: nanoid(), name: 'Kick' },
+  { id: nanoid(), name: 'Rumble' },
+];

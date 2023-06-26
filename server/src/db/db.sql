@@ -8,7 +8,6 @@ CREATE TABLE streamers (
   picture_number INTEGER NOT NULL,
   upvotes INTEGER NOT NULL,
   downvotes INTEGER NOT NULL,
-  created_at TIMESTAMPTZ DEFAULT NOW(),
   UNIQUE(name)
 );
 

@@ -1,15 +1,17 @@
+import { Platforms } from 'constants';
 import { FormEvent, useState } from 'react';
 import { createStreamer, getAllStreamers } from 'api/streamersAPI';
+import { useStreamerContext } from 'contexts/StreamerContext';
 import { returnRandomNumber } from 'features/Form/helpers';
-import { FormProps } from 'features/Form/types';
 
-export const useForm = ({ options, setData }: FormProps) => {
-  const [platform, setPlatform] = useState(options[0].name);
+export const useForm = () => {
+  const { setStreamers } = useStreamerContext();
+  const [platform, setPlatform] = useState(Platforms[0].name);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
 
   const resetToDefaults = () => {
-    setPlatform(options[0].name);
+    setPlatform(Platforms[0].name);
     setName('');
     setDescription('');
   };
@@ -28,7 +30,7 @@ export const useForm = ({ options, setData }: FormProps) => {
     const response = await createStreamer(streamerData);
     resetToDefaults();
 
-    if (response.status === 200) getAllStreamers(setData);
+    if (response.status === 200) getAllStreamers(setStreamers);
   };
 
   return {

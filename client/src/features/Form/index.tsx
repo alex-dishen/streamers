@@ -1,16 +1,16 @@
+import { Platforms } from 'constants';
 import Input from 'components/Input';
 import DropDown from 'components/DropDown';
 import TextArea from 'components/TextArea';
-import { FormProps } from 'features/Form/types';
+import { useForm } from 'features/Form/useForm';
 import {
   FormBody,
   FormTop,
   StyledForm,
   SubmitButton,
 } from 'features/Form/styles';
-import { useForm } from './useForm';
 
-const Form = ({ options, setData }: FormProps) => {
+const Form = () => {
   const {
     name,
     platform,
@@ -19,13 +19,10 @@ const Form = ({ options, setData }: FormProps) => {
     setPlatform,
     setDescription,
     handleSubmit,
-  } = useForm({ options, setData });
+  } = useForm();
 
   return (
-    <StyledForm
-      style={{ backdropFilter: 'blur(15px)' }}
-      onSubmit={handleSubmit}
-    >
+    <StyledForm onSubmit={handleSubmit}>
       <FormBody>
         <FormTop>
           <Input
@@ -40,7 +37,7 @@ const Form = ({ options, setData }: FormProps) => {
             title="Platform"
             setOption={setPlatform}
             optionName={platform}
-            options={options}
+            options={Platforms}
           />
         </FormTop>
         <TextArea

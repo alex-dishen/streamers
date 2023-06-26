@@ -4,9 +4,7 @@ import { UpdatedRequest } from '../types'
 
 export const getStreamers = async (req: Request, res: Response) => {
   try {
-    const data = await pool.query(
-      'SELECT * FROM streamers ORDER BY created_at;'
-    )
+    const data = await pool.query('SELECT * FROM streamers;')
     res.json(data.rows)
   } catch (error) {
     console.error(error)
@@ -44,19 +42,21 @@ export const deleteStreamer = async (req: Request, res: Response) => {
   }
 }
 
-export const updateUpvotesDownVotes = async (
-  req: UpdatedRequest,
-  res: Response
-) => {
+export const updateVotes = async (req: UpdatedRequest, res: Response) => {
   const { id } = req.params
   const { voteType, voteValue } = req.body
 
   try {
-    const response = await pool.query(
+    await pool.query(
       `UPDATE streamers SET ${voteType} = $1 WHERE streamer_id = $2;`,
       [voteValue, id]
     )
-    res.json(response)
+
+    const data = await pool.query(
+      'SELECT * FROM streamers WHERE streamer_id = $1;',
+      [id]
+    )
+    res.json(data.rows)
   } catch (error) {
     console.error(error)
   }

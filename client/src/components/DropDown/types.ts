@@ -1,10 +1,10 @@
-import { DropDownPropsOptionsT } from 'types';
+import { DropDownPropsOptionsT, PlatformT } from 'types';
 
 export type DropDownProps = {
   title: string;
   optionName: string;
   options: DropDownPropsOptionsT[];
-  setOption: (a: string) => void;
+  setOption: (a: PlatformT) => void;
 };
 
 export type DropDownItemT = {
