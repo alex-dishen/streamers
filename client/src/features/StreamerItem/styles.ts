@@ -7,7 +7,6 @@ export const Option = styled.li`
   border: 1px solid rgb(37, 37, 37);
   font-size: 18px;
   border-radius: 15px;
-  text-align: center;
 `;
 
 export const CrossButton = styled.button`
@@ -31,6 +30,18 @@ export const CrossButton = styled.button`
   }
 `;
 
+export const OptionBody = styled(FlexColumn)`
+  gap: 15px;
+  margin-bottom: 15px;
+  overflow: hidden;
+  cursor: pointer;
+
+  p {
+    width: 100%;
+    text-align: center;
+  }
+`;
+
 export const Image = styled.img`
   height: 70px;
   width: 70px;
@@ -43,16 +54,10 @@ export const GlowingImage = styled(Image)`
   filter: blur(15px);
 `;
 
-export const OptionBody = styled(FlexColumn)`
-  gap: 15px;
-  margin-bottom: 15px;
-  cursor: pointer;
-`;
-
 export const Rating = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  justify-content: center;
+  gap: 25px;
   font-size: 14px;
 
   p {
