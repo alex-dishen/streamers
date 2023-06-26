@@ -1,7 +1,9 @@
 import { HashRouter } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
-import GlobalStyles from 'styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
+import theme from 'theme';
 import App from 'App';
+import GlobalStyles from 'styles/GlobalStyles';
 import 'styles/normalize.css';
 
 const root = ReactDOM.createRoot(
@@ -9,9 +11,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <>
-    <GlobalStyles />
     <HashRouter>
-      <App />
+      <ThemeProvider theme={theme}>
+        <GlobalStyles />
+        <App />
+      </ThemeProvider>
     </HashRouter>
   </>,
 );
