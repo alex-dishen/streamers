@@ -12,7 +12,7 @@ const router = express.Router()
 
 router.get('/streamers', tryCatch(getStreamers))
 
-router.get('/:streamer/:id', tryCatch(getStreamer))
+router.get('/streamers/:id', tryCatch(getStreamer))
 
 router.post('/streamers', tryCatch(createStreamer))
 

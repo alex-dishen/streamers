@@ -71,6 +71,7 @@ export const PlatformLine = styled.p`
 
 export const Description = styled(FlexColumn)`
   gap: 5px;
+  width: 80%;
 `;
 
 export const Rating = styled.div`
