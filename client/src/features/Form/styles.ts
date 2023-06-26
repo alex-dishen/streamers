@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FlexColumn } from 'styles';
 
 export const StyledForm = styled.form`
   display: flex;
@@ -8,10 +9,7 @@ export const StyledForm = styled.form`
   border-radius: 20px;
 `;
 
-export const FormBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const FormBody = styled(FlexColumn)`
   gap: 30px;
   width: min(450px, 90%);
 `;

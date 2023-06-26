@@ -1,10 +1,8 @@
 import styled from 'styled-components';
+import { FlexColumn } from 'styles';
 
-export const StreamerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const StreamerWrapper = styled(FlexColumn)`
   justify-content: center;
-  align-items: center;
   flex: 1;
 `;
 
@@ -36,10 +34,7 @@ export const HomeButton = styled.button`
   }
 `;
 
-export const StreamerDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const StreamerDetails = styled(FlexColumn)`
   gap: 20px;
   width: clamp(300px, 80vw, 900px);
   padding: 40px;
@@ -71,10 +66,7 @@ export const PlatformLine = styled.p`
   margin-top: -15px;
 `;
 
-export const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const Description = styled(FlexColumn)`
   gap: 5px;
 `;
 

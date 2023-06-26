@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FlexColumn } from 'styles';
 
 export const Option = styled.li`
   position: relative;
@@ -42,10 +43,7 @@ export const GlowingImage = styled(Image)`
   filter: blur(15px);
 `;
 
-export const OptionBody = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const OptionBody = styled(FlexColumn)`
   gap: 15px;
   margin-bottom: 15px;
   cursor: pointer;
