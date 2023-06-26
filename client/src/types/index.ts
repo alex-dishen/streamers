@@ -21,3 +21,9 @@ export type VotesT = {
   voteType: string;
   voteValue: number;
 };
+
+export type ResponseT = {
+  status: number;
+  data: StreamerDataT[];
+  response: { status: number; data: string };
+};

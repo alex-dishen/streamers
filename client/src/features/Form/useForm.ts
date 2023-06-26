@@ -1,11 +1,13 @@
 import { Platforms } from 'constants';
 import { FormEvent, useState } from 'react';
-import { createStreamer, getAllStreamers } from 'api/streamersAPI';
+import { createStreamer } from 'api/streamersAPI';
 import { useStreamerContext } from 'contexts/StreamerContext';
 import { returnRandomNumber } from 'features/Form/helpers';
+import { ResponseT } from 'types';
+import { handleError } from 'helpers';
 
 export const useForm = () => {
-  const { setStreamers } = useStreamerContext();
+  const { setStreamers, setShowError, setErrorMessage } = useStreamerContext();
   const [platform, setPlatform] = useState(Platforms[0].name);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -27,10 +29,13 @@ export const useForm = () => {
       downvotes: 0,
     };
 
-    const response = await createStreamer(streamerData);
-    resetToDefaults();
+    const response = (await createStreamer(streamerData)) as ResponseT;
 
-    if (response.status === 200) getAllStreamers(setStreamers);
+    if (response.status !== 200)
+      return handleError(response.response.data, setErrorMessage, setShowError);
+
+    resetToDefaults();
+    setStreamers(response.data);
   };
 
   return {
