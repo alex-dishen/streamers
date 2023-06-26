@@ -1,12 +1,11 @@
 import { nanoid } from 'nanoid';
 import { PlatformsT } from 'pages/Home/types';
-
-import Panda from 'assets/images/panda.jpg';
-import SpaceMan from 'assets/images/space_man.jpg';
-import SleepingPanda from 'assets/images/sleeping_panda.jpg';
-import Cat from 'assets/images/cat.jpg';
-import Robot from 'assets/images/robot.jpg';
-import Zebra from 'assets/images/zebra.jpg';
+import Panda from 'assets/images/panda.webp';
+import SpaceMan from 'assets/images/space_man.webp';
+import SleepingPanda from 'assets/images/sleeping_panda.webp';
+import Cat from 'assets/images/cat.webp';
+import Robot from 'assets/images/robot.webp';
+import Zebra from 'assets/images/zebra.webp';
 import { ReactComponent as TikTok } from 'assets/icons/tiktok.svg';
 import { ReactComponent as Rumble } from 'assets/icons/rumble.svg';
 import { ReactComponent as Kick } from 'assets/icons/kick.svg';
