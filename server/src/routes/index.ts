@@ -1,14 +1,17 @@
 import express from 'express'
 import {
   getStreamers,
+  getStreamer,
   createStreamer,
-  deleteStreamer,
-  updateVotes
+  updateVotes,
+  deleteStreamer
 } from '../controllers'
 
 const router = express.Router()
 
 router.get('/streamers', getStreamers)
+
+router.get('/:streamer/:id', getStreamer)
 
 router.post('/streamers', createStreamer)
 

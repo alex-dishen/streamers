@@ -1,6 +1,6 @@
-import { PlatformIcons } from 'constants';
+import { PLATFORM_ICONS } from 'constants';
 
-export type PlatformT = keyof typeof PlatformIcons;
+export type PlatformT = keyof typeof PLATFORM_ICONS;
 
 export type StreamerDataT = {
   streamer_id?: string;

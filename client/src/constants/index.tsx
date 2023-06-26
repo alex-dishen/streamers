@@ -20,7 +20,7 @@ export enum PAGES {
   STREAMER = '/streamer/:id',
 }
 
-export const PlatformIcons = {
+export const PLATFORM_ICONS = {
   TikTok: <TikTok />,
   Rumble: <Rumble />,
   Kick: <Kick />,

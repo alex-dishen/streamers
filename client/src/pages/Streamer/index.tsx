@@ -1,6 +1,6 @@
-import { IMAGES, PAGES, PlatformIcons } from 'constants';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { StateT } from 'pages/Streamer/types';
+import { IMAGES, PAGES, PLATFORM_ICONS } from 'constants';
+import { useNavigate } from 'react-router-dom';
+import { useStreamer } from 'pages/Streamer/uaeStreamer';
 import {
   StreamerWrapper,
   HomeButton,
@@ -14,11 +14,18 @@ import {
 import { ReactComponent as ArrowLeft } from 'assets/icons/arrow_left.svg';
 
 const Streamer = () => {
-  const { state }: StateT = useLocation();
   const navigate = useNavigate();
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  const { name, description, platform, picture_index, upvotes, downvotes } =
-    state.streamer;
+  const { streamer } = useStreamer();
+
+  const {
+    name,
+    description,
+    platform = 'Twitch',
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    picture_index = -1,
+    upvotes,
+    downvotes,
+  } = streamer || {};
 
   return (
     <StreamerWrapper>
@@ -31,7 +38,7 @@ const Streamer = () => {
           <Image src={IMAGES[picture_index]} />
           <BlurredImage src={IMAGES[picture_index]} />
           <p>Hi, my name is {name} 👋</p>
-          <PlatformLine>I'm a {PlatformIcons[platform]} streamer</PlatformLine>
+          <PlatformLine>I'm a {PLATFORM_ICONS[platform]} streamer</PlatformLine>
           <Description>
             <p>Here is a bit more about me:</p>
             <p>{description}</p>

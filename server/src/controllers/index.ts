@@ -11,6 +11,20 @@ export const getStreamers = async (req: Request, res: Response) => {
   }
 }
 
+export const getStreamer = async (req: Request, res: Response) => {
+  const { id } = req.params
+
+  try {
+    const data = await pool.query(
+      'SELECT * FROM streamers WHERE streamer_id = $1;',
+      [id]
+    )
+    res.json(data.rows)
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const createStreamer = async (req: UpdatedRequest, res: Response) => {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const { name, platform, description, picture_index, upvotes, downvotes } =
