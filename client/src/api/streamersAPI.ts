@@ -8,7 +8,16 @@ export const getAllStreamers = async (
 ) => {
   const response = await axios.get(API_URL);
 
-  if (response.status === 200) setData(response.data);
+  if (response) setData(response.data);
+};
+
+export const getStreamer = async (
+  id: string,
+  setData: (a: StreamerDataT) => void,
+) => {
+  const response = await axios.get(`${API_URL}/${id}`);
+
+  if (response) setData(response.data[0]);
 };
 
 export const createStreamer = async (streamerData: StreamerDataT) => {
