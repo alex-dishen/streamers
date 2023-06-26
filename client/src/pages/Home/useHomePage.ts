@@ -21,7 +21,6 @@ export const useHomePage = () => {
 
   useEffect(() => {
     handleFetchData();
-    console.log(streamers);
   }, []);
 
   return {
