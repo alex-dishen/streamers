@@ -20,20 +20,22 @@ export const DropDownButton = styled.button`
   border-radius: 10px;
 `;
 
-export const DropDownOptions = styled.ul`
-  position: absolute;
-  top: 120%;
-  width: 100%;
-  background-color: #0f0f0f;
-  border: 1px solid rgb(37, 37, 37);
-  border-radius: 10px;
-`;
+export const DropDownOptions = styled.ul(
+  ({ theme }) => css`
+    position: absolute;
+    top: 120%;
+    width: 100%;
+    background-color: ${theme.colors.black[900]};
+    border: 1px solid rgb(37, 37, 37);
+    border-radius: 10px;
+  `,
+);
 
 export const DropDownItem = styled.li<DropDownItemT>(
-  ({ isHighlight }) => css`
+  ({ isHighlight, theme }) => css`
     padding: 10px 15px;
-    color: ${isHighlight ? 'white' : '#777777'};
-    font-size: 18px;
+    color: ${isHighlight ? 'white' : theme.colors.gray[400]};
+    font-size: ${theme.fontSizes.xs};
     list-style: none;
     transition: 300ms;
     cursor: pointer;

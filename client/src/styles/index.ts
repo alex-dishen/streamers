@@ -1,8 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Star = styled.span`
-  color: rgb(242, 81, 53);
-`;
+export const Star = styled.span(
+  ({ theme }) => css`
+    color: ${theme.colors.red[200]};
+  `,
+);
 
 export const FlexColumn = styled.div`
   display: flex;

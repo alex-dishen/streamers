@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { FlexColumn } from 'styles';
 
 export const StreamerWrapper = styled(FlexColumn)`
@@ -6,40 +6,43 @@ export const StreamerWrapper = styled(FlexColumn)`
   flex: 1;
 `;
 
-export const HomeButton = styled.button`
-  display: flex;
-  align-items: center;
-  align-self: flex-start;
-  gap: 10px;
-  margin-bottom: 25px;
-  color: #777777;
+export const HomeButton = styled.button(
+  ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 10px;
+    margin-bottom: 25px;
+    color: ${theme.colors.gray[400]};
 
-  &,
-  svg {
-    transition: 300ms;
-  }
+    &,
+    svg {
+      transition: 300ms;
+    }
 
-  &:hover {
-    color: white;
+    &:hover {
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
 
     svg {
-      fill: white;
+      height: 15px;
+      width: 15px;
+      fill: ${theme.colors.gray[400]};
     }
-  }
-
-  svg {
-    height: 15px;
-    width: 15px;
-    fill: #777777;
-  }
-`;
+  `,
+);
 
 export const StreamerDetails = styled(FlexColumn)`
   gap: 20px;
-  width: clamp(300px, 80vw, 900px);
+  width: clamp(280px, 80vw, 900px);
   padding: 40px;
   border: 1px solid rgb(37, 37, 37);
   border-radius: 20px;
+  text-align: center;
 
   svg {
     position: relative;
