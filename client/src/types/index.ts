@@ -1,7 +1,11 @@
+import { PlatformIcons } from 'constants';
+
+export type PlatformT = keyof typeof PlatformIcons;
+
 export type StreamerDataT = {
   streamer_id?: string;
   name: string;
-  platform: string;
+  platform: PlatformT;
   description: string;
   picture_index: number;
   upvotes: number;
@@ -10,7 +14,7 @@ export type StreamerDataT = {
 
 export type DropDownPropsOptionsT = {
   id: string;
-  name: string;
+  name: PlatformT;
 };
 
 export type VotesT = {

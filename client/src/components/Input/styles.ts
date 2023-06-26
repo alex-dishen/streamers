@@ -1,8 +1,7 @@
 import styled from 'styled-components';
+import { FlexColumn } from 'styles';
 
-export const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const InputWrapper = styled(FlexColumn)`
   align-items: flex-start;
   gap: 10px;
 `;

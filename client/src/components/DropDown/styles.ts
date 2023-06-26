@@ -1,9 +1,9 @@
 import styled, { css } from 'styled-components';
 import { DropDownItemT } from 'components/DropDown/types';
+import { FlexColumn } from 'styles';
 
-export const DropDownWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+export const DropDownWrapper = styled(FlexColumn)`
+  align-items: flex-start;
   gap: 10px;
   position: relative;
   min-width: 115px;

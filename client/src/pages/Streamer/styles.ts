@@ -1,24 +1,40 @@
 import styled from 'styled-components';
+import { FlexColumn } from 'styles';
 
-export const StreamerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+export const StreamerWrapper = styled(FlexColumn)`
   justify-content: center;
-  align-items: center;
+  flex: 1;
 `;
 
-export const Description = styled.div`
+export const HomeButton = styled.button`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 5px;
+  align-self: flex-start;
+  gap: 10px;
+  margin-bottom: 25px;
+  color: #777777;
+
+  &,
+  svg {
+    transition: 300ms;
+  }
+
+  &:hover {
+    color: white;
+
+    svg {
+      fill: white;
+    }
+  }
+
+  svg {
+    height: 15px;
+    width: 15px;
+    fill: #777777;
+  }
 `;
 
-export const StreamerDetails = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const StreamerDetails = styled(FlexColumn)`
   gap: 20px;
   width: clamp(300px, 80vw, 900px);
   padding: 40px;
@@ -34,6 +50,26 @@ export const StreamerDetails = styled.div`
   }
 `;
 
+export const Image = styled.img`
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+`;
+
+export const BlurredImage = styled(Image)`
+  z-index: -1;
+  position: absolute;
+  filter: blur(20px);
+`;
+
+export const PlatformLine = styled.p`
+  margin-top: -15px;
+`;
+
+export const Description = styled(FlexColumn)`
+  gap: 5px;
+`;
+
 export const Rating = styled.div`
   display: flex;
   flex-direction: column;
@@ -44,16 +80,4 @@ export const Rating = styled.div`
     display: flex;
     gap: 30px;
   }
-`;
-
-export const Image = styled.img`
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-`;
-
-export const BluredImage = styled(Image)`
-  z-index: -1;
-  position: absolute;
-  filter: blur(20px);
 `;

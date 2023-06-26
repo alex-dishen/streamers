@@ -1,12 +1,11 @@
 import Form from 'features/Form';
-import StreamersList from 'components/StreamersList';
+import StreamersList from 'features/StreamersList';
 import { useHomePage } from 'pages/Home/useHomePage';
-import { Platforms } from 'pages/Home/constants';
 import { HomePageWrapper, Header, ListWrapper } from 'pages/Home/styles';
+import { StreamerContext } from 'contexts/StreamerContext';
 
 const Home = () => {
-  const { streamers, setStreamers, handleDelete, handleVoteClick } =
-    useHomePage();
+  const { streamers, setStreamers } = useHomePage();
 
   return (
     <HomePageWrapper>
@@ -14,16 +13,13 @@ const Home = () => {
         <h1>Who is your favorite streamer?</h1>
         <p>Gather them all in one place</p>
       </Header>
-      <ListWrapper>
-        <p>Your streamers</p>
-        <StreamersList
-          values={streamers}
-          onClick={console.log}
-          onDelete={handleDelete}
-          voteClick={handleVoteClick}
-        />
-      </ListWrapper>
-      <Form options={Platforms} setData={setStreamers} />
+      <StreamerContext.Provider value={{ streamers, setStreamers }}>
+        <ListWrapper>
+          <p>Your streamers</p>
+          <StreamersList values={streamers} />
+        </ListWrapper>
+        <Form />
+      </StreamerContext.Provider>
     </HomePageWrapper>
   );
 };
