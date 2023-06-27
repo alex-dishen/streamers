@@ -1,20 +1,35 @@
 <h1 align='center'>Streamers</h1>
 
-## Built with
+![Preview](images/intro.png)
+
+<p align='center'>Streamers was made as an assignment from <a href="https://daredrop.com">Dare Drop</a></p>
+
+<h2>Built with</h2>
+
+<h3>Front-End</h3>
 
 - React
 - TypeScript
 - Styled-Components
+
+<h3>Back-End</h3>
+
 - Node.js
 - Express
 - PostgreSQL
 
-## Screenshots
+</br>
+
+<h2>Screenshots</h2>
+
 
 ![](images/home_page.png)
 ![](images/streamer_page.png)
+![](images/404.png)
 
-## APi endpoints
+</br>
+
+<h2>API endpoints</h2>
 
 - **GET** ```/streamers``` - Returns a list of all streamers in the database.
 - **GET** ```/streamers/:id``` - Retrieves a specific streamer based on the provided id parameter.
@@ -22,7 +37,9 @@
 - **PUT** ```/streamers/:id/vote``` - Updates the information of a specific streamer identified by the provided id parameter.
 - **DELETE** ```/streamers/:id``` - Deletes a streamer based on the provided id parameter.
 
-## Request/Response Examples
+</br>
+
+<h2>Request/Response Examples</h2>
 
 Here are some examples of request and response payloads for the endpoints:
 
@@ -31,25 +48,25 @@ Here are some examples of request and response payloads for the endpoints:
 - Response:
 ```json
 [
-    {
-        "streamer_id": "cd196746-4bec-4199-8198-881eabe61233",
-        "name": "Moris",
-        "platform": "Kick",
-        "description": "Love creating something new",
-        "picture_index": 1,
-        "upvotes": 6,
-        "downvotes": 0,
-    }
-    {
-        "streamer_id": "9be37f97-a557-4dc4-b272-5d87db26023c",
-        "name": "Moty Weiss",
-        "platform": "Twitch",
-        "description": "A really nice YouTube streamer that shows how to create new things from scratch",
-        "picture_index": 3,
-        "upvotes": 10,
-        "downvotes": 3,
-    }
-  ]
+  {
+    "streamer_id": "cd196746-4bec-4199-8198-881eabe61233",
+    "name": "Moris",
+    "platform": "Kick",
+    "description": "Love creating something new",
+    "picture_index": 1,
+    "upvotes": 6,
+    "downvotes": 0,
+  }
+  {
+    "streamer_id": "9be37f97-a557-4dc4-b272-5d87db26023c",
+    "name": "Moty Weiss",
+    "platform": "Twitch",
+    "description": "A really nice YouTube streamer that shows how to create new things from scratch",
+    "picture_index": 3,
+    "upvotes": 10,
+    "downvotes": 3,
+  }
+]
 ```
 
 2. **POST** ```/streamers```
@@ -57,16 +74,18 @@ Here are some examples of request and response payloads for the endpoints:
 - Request:
 ```json
 {
-    "name": "Alex",
-    "description": "Teaching others how to grow faster",
-    "platform": "YouTube",
-    "picture_index": 5,
-    "upvotes": 0,
-    "downvotes": 0
+  "name": "Alex",
+  "description": "Teaching others how to grow faster",
+  "platform": "YouTube",
+  "picture_index": 5,
+  "upvotes": 0,
+  "downvotes": 0
 }
 ```
 
-## Development
+</br>
+
+<h2>Development</h2>
 
 Here are the steps to run the project locally.
 
@@ -89,17 +108,16 @@ $ cd streamers
 You can use ```npm``` instead of ```yarn```
 
 ```sh
-$ cd client
-$ yarn
-$ cd ../server
-$ yarn
-$ cd ..
+$ yarn client:i
+$ yarn server:i
 ```
 
 4. Start PostgreSQL server
 
-5. Navigate to ```server/db``` and open file ```db.sql``` to see the database and table that has to be created. The execute those commands to create the database and table.
+5. Navigate to ```server/src/db``` and open ```db.sql``` file to see the database and table that has to be created.
 
-6. Start Node.js server. You are currently in a ```streamers``` directory so run ```yarn server```
+6. In the ```server/src/db``` directory open ```index.ts``` file and update the connection data
 
-7. Start Vite server ```yarn client```
+6. Start Node.js server. Navigate to the top ```streamers```  directory and run ```$ yarn server```
+
+7. Start Vite server ```$ yarn client```
