@@ -6,16 +6,17 @@ import { ResponseT, StreamerDataT } from 'types';
 
 export const useStreamer = () => {
   const [showSorry, setShowSorry] = useState(false);
-  const location = useLocation();
-
   const [streamer, setStreamer] = useState<StreamerDataT>();
+  const location = useLocation();
 
   const streamerID = cutOffStreamer(location.pathname);
 
   const handleGetRequest = async () => {
-    const response = (await getStreamer(streamerID, setStreamer)) as ResponseT;
+    const response = (await getStreamer(streamerID)) as ResponseT;
 
-    if (response.status !== 200) setShowSorry(true);
+    if (response.status === 200) return setStreamer(response.data[0]);
+
+    setShowSorry(true);
   };
 
   useEffect(() => {

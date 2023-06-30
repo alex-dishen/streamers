@@ -3,26 +3,21 @@ import { StreamerDataT, VotesT } from 'types';
 
 const API_URL = 'http://localhost:8000/streamers';
 
-export const getAllStreamers = async (
-  setData: (a: StreamerDataT[]) => void,
-) => {
+export const getAllStreamers = async () => {
   try {
     const response = await axios.get(API_URL);
 
-    if (response) setData(response.data);
+    return response;
   } catch (error) {
     return error;
   }
 };
 
-export const getStreamer = async (
-  id: string,
-  setData: (a: StreamerDataT) => void,
-) => {
+export const getStreamer = async (id: string) => {
   try {
     const response = await axios.get(`${API_URL}/${id}`);
 
-    if (response) setData(response.data[0]);
+    return response;
   } catch (error) {
     return error;
   }

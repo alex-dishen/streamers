@@ -9,14 +9,14 @@ export const useHomePage = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleFetchData = async () => {
-    const response = (await getAllStreamers(setStreamers)) as ResponseT;
+    const response = (await getAllStreamers()) as ResponseT;
 
-    if (response) {
-      setErrorMessage(
-        response.response?.data || 'The server is possibly not running',
-      );
-      setIsFailedToFetch(true);
-    }
+    if (response.status === 200) return setStreamers(response.data);
+
+    setErrorMessage(
+      response.response?.data || 'The server is possibly not running',
+    );
+    setIsFailedToFetch(true);
   };
 
   useEffect(() => {
