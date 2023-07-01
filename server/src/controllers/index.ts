@@ -26,6 +26,7 @@ export const getStreamer = async (
   if (data.rows.length === 0) {
     throw new Error("We didn't find the streamer")
   }
+
   res.status(200).json(data.rows)
 }
 
@@ -44,7 +45,11 @@ export const createStreamer = async (
     [name, description, platform, picture_index, upvotes, downvotes]
   )
 
-  await getStreamers(req, res, next)
+  const newStreamer = await pool.query(
+    `SELECT * FROM streamers ORDER BY created_at DESC LIMIT 1`
+  )
+
+  res.status(200).json(newStreamer.rows)
 }
 
 export const deleteStreamer = async (
@@ -72,5 +77,10 @@ export const updateVotes = async (
     [voteValue, id]
   )
 
-  await getStreamer(req, res, next)
+  const data = await pool.query(
+    `SELECT streamer_id, ${voteType} FROM streamers WHERE streamer_id = $1;`,
+    [id]
+  )
+
+  res.status(200).json(data.rows)
 }

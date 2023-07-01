@@ -17,8 +17,10 @@ export type DropDownPropsOptionsT = {
   name: PlatformT;
 };
 
+export type VoteTypeT = 'upvotes' | 'downvotes';
+
 export type VotesT = {
-  voteType: string;
+  voteType: VoteTypeT;
   voteValue: number;
 };
 

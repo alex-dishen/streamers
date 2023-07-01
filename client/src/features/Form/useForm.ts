@@ -7,7 +7,8 @@ import { ResponseT } from 'types';
 import { handleError } from 'helpers';
 
 export const useForm = () => {
-  const { setStreamers, setShowError, setErrorMessage } = useStreamerContext();
+  const { streamers, setStreamers, setShowError, setErrorMessage } =
+    useStreamerContext();
   const [platform, setPlatform] = useState(Platforms[0].name);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
@@ -35,7 +36,7 @@ export const useForm = () => {
       return handleError(response.response.data, setErrorMessage, setShowError);
 
     resetToDefaults();
-    setStreamers(response.data);
+    setStreamers([...streamers, response.data[0]]);
   };
 
   return {
