@@ -45,6 +45,8 @@ Here are some examples of request and response payloads for the endpoints:
 
 1. **GET** ```/streamers```
 
+- Request: nothing to provide
+
 - Response:
 ```json
 [
@@ -72,6 +74,7 @@ Here are some examples of request and response payloads for the endpoints:
 2. **POST** ```/streamers```
 
 - Request:
+
 ```json
 {
   "name": "Alex",
@@ -81,6 +84,39 @@ Here are some examples of request and response payloads for the endpoints:
   "upvotes": 0,
   "downvotes": 0
 }
+```
+
+- Response:
+```json
+[{
+  "streamer_id": "fa9e6e6f-9ea2-4d59-8abc-3f72212da3aa",
+  "name": "Alex",
+  "description": "Teaching others how to grow faster",
+  "platform": "YouTube",
+  "picture_index": 5,
+  "upvotes": 0,
+  "downvotes": 0,
+  "created_at": "2023-07-01T04:01:53.625Z"
+}]
+```
+
+3. **PUT** ```/streamers/:id/vote```
+
+- Request:
+
+```json
+{
+  "voteType": "upvotes",
+  "voteValue": 4
+}
+```
+
+- Response:
+```json
+[{
+  "streamer_id": "fa9e6e6f-9ea2-4d59-8abc-3f72212da3aa",
+  "upvotes": 4,
+}]
 ```
 
 </br>
