@@ -2,7 +2,7 @@ name: Deploy website
 on:
   push:
     branches:
-      - develop
+      - main
 
 jobs:
   ProdDeploy:
@@ -20,7 +20,7 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install and build project
-        run: cd client && yarn && yarn build:prod
+        run: cd client && yarn && yarn build
         env: 
           VITE_DATABASE_URL: ${{secrets.DATABASE_URL}}
         
