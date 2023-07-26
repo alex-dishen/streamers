@@ -4,6 +4,7 @@ on:
     branches:
       - develop
 
+jobs:
   ProdDeploy:
     name: Build and deploy for prod
     if: github.event.ref == 'refs/heads/main'
