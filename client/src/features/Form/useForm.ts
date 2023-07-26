@@ -12,6 +12,7 @@ export const useForm = () => {
   const [platform, setPlatform] = useState(Platforms[0].name);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+  const [showLoader, setShowLoader] = useState(false);
 
   const resetToDefaults = () => {
     setPlatform(Platforms[0].name);
@@ -21,6 +22,8 @@ export const useForm = () => {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    setShowLoader(true);
+
     const streamerData = {
       name: name,
       platform: platform,
@@ -32,16 +35,21 @@ export const useForm = () => {
 
     const response = (await createStreamer(streamerData)) as ResponseT;
 
-    if (response.status !== 200)
+    if (response.status !== 200) {
+      setShowLoader(false);
+
       return handleError(response.response.data, setErrorMessage, setShowError);
+    }
 
     resetToDefaults();
     setStreamers([...streamers, response.data[0]]);
+    setShowLoader(false);
   };
 
   return {
     name,
     platform,
+    showLoader,
     description,
     setName,
     setPlatform,

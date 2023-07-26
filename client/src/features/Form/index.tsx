@@ -1,4 +1,5 @@
 import { Platforms } from 'constants';
+import { CircularProgress } from 'react-cssfx-loading';
 import Input from 'components/Input';
 import DropDown from 'components/DropDown';
 import TextArea from 'components/TextArea';
@@ -9,17 +10,20 @@ import {
   StyledForm,
   SubmitButton,
 } from 'features/Form/styles';
+import { useTheme } from 'styled-components';
 
 const Form = () => {
   const {
     name,
     platform,
+    showLoader,
     description,
     setName,
     setPlatform,
     setDescription,
     handleSubmit,
   } = useForm();
+  const theme = useTheme();
 
   return (
     <StyledForm onSubmit={handleSubmit}>
@@ -47,7 +51,11 @@ const Form = () => {
           value={description}
           onChange={setDescription}
         />
-        <SubmitButton type="submit">Add New Streamer</SubmitButton>
+        {showLoader ? (
+          <CircularProgress height="38px" color={theme.colors.blue[600]} />
+        ) : (
+          <SubmitButton type="submit">Add New Streamer</SubmitButton>
+        )}
       </FormBody>
     </StyledForm>
   );

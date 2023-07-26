@@ -6,5 +6,8 @@
     "server:i": "cd server && yarn",
     "client": "cd client && yarn start",
     "server": "cd server && yarn dev"
+  },
+  "devDependencies": {
+    "react-cssfx-loading": "^2.1.0"
   }
 }

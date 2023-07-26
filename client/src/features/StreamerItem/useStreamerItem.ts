@@ -16,12 +16,23 @@ export const useStreamerItem = () => {
   };
 
   const onDelete = async (id?: string) => {
+    if (streamers.length <= 1)
+      return handleError(
+        "You can't delete the last streamer",
+        setErrorMessage,
+        setShowError,
+      );
+
+    const updatedStreamers = streamers.filter(
+      streamer => streamer.streamer_id !== id,
+    );
+
+    setStreamers(updatedStreamers);
+
     const response = (await deleteStreamer(id)) as ResponseT;
 
     if (response.status !== 200)
       return handleError(response.response.data, setErrorMessage, setShowError);
-
-    setStreamers(response.data);
   };
 
   const onVoteClick = async (
@@ -34,12 +45,21 @@ export const useStreamerItem = () => {
       voteValue: voteValue,
     };
 
+    const currentStreamer = streamers.find(
+      streamer => streamer.streamer_id === id,
+    ) as StreamerDataT;
+
+    const updatedStreamer = {
+      ...currentStreamer,
+      [voteType]: currentStreamer?.[voteType] + 1,
+    };
+
+    setStreamers(updateStreamer(updatedStreamer, voteType));
+
     const response = (await updateVotes(id, newData)) as ResponseT;
 
     if (response.status !== 200)
       return handleError(response.response.data, setErrorMessage, setShowError);
-
-    setStreamers(updateStreamer(response.data[0], voteType));
   };
 
   return { onVoteClick, onDelete };
