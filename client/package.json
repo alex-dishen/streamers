@@ -35,6 +35,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "moris": "^1.0.3",
     "prettier": "^2.8.8",
+    "react-cssfx-loading": "^2.1.0",
     "typescript": "^5.0.4",
     "vite": "^4.3.9",
     "vite-plugin-svgr": "^3.2.0",
