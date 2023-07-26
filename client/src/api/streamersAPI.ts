@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { StreamerDataT, VotesT } from 'types';
 
-const API_URL = 'http://localhost:8000/streamers';
+const API_URL = import.meta.env.VITE_DATABASE_URL;
 
 export const getAllStreamers = async () => {
   try {
